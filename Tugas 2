@@ -1,10 +1,22 @@
-## Memulai
+# Analisis Data Penjualan Pizza
+
+## Deskripsi
+
+Dalam proyek ini, kita akan melakukan analisis pada data penjualan pizza menggunakan Python dan beberapa pustaka populer.
+
+## Kode untuk Memuat dan Menampilkan Data
+
+Berikut adalah kode untuk memuat data dari file CSV dan menampilkan lima baris pertama:
 
 ```python
-# Mengimpor library yang diperlukan
-import numpy as np                     # NumPy untuk komputasi numerik
-import pandas as pd                    # Pandas untuk manipulasi dan analisis data
-import matplotlib.pyplot as plt        # Matplotlib untuk visualisasi data
-import seaborn as sns                 # Seaborn untuk visualisasi yang lebih menarik
+# Library yang dibutuhkan
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import stats
 
-```
+# Memuat data dari file CSV
+df = pd.read_csv('E:/semester 3/IPUSD/archive/pizza_sales.csv')
+
+# Menampilkan lima baris pertama dari DataFrame
+df.head()
