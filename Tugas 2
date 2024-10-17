@@ -20,3 +20,4 @@ df = pd.read_csv('E:/semester 3/IPUSD/archive/pizza_sales.csv')
 
 # Menampilkan lima baris pertama dari DataFrame
 df.head()
+```
