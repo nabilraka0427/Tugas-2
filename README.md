@@ -267,6 +267,93 @@ Rata-rata: 16.91767403266661, Standar Deviasi: 3.8534821751461728
 Hasil Uji t:
 T-statistik: -34.45212078967407, P-value: 2.1675051843498843e-254
 
+# Menghitung statistik deskriptif
+```pyhton
+stats = df['total_price'].describe()
+```
+# Menghitung median dan modus
+```pyhton
+median_price = df['total_price'].median()
+mode_price = df['total_price'].mode()[0]  # Mengambil modus pertama
+```
+# Menghitung korelasi antara quantity dan total_price
+```pyhton
+correlation = df['quantity'].corr(df['total_price'])
+```
+# Menampilkan hasil
+```pyhton
+print("Statistik Deskriptif:\n", stats)
+print("Median Total Price:", median_price)
+print("Modus Total Price:", mode_price)
+print("Korelasi antara Quantity dan Total Price:", correlation)
+```
+| Statistik                                             | Nilai              |
+|------------------------------------------------------|--------------------|
+| **Count**                                           | 48,620              |
+| **Mean (Rata-rata)**                               | 16.82               |
+| **Standard Deviation (Standar Deviasi)**           | 4.44                |
+| **Min (Minimum)**                                   | 9.75                |
+| **25% (Kuartil 1)**                                | 12.75               |
+| **Median (Kuartil 2)**                             | 16.50               |
+| **75% (Kuartil 3)**                                | 20.50               |
+| **Max (Maksimum)**                                  | 83.00               |
+| **Median Total Price**                              | 16.50               |
+| **Modus Total Price**                               | 20.75               |
+| **Korelasi antara Quantity dan Total Price**       | 0.54                |
+
+Korelasi antara Quantity dan Total Price: 0.5419262253696083
+# Visualisasi histogram
+```python
+plt.figure(figsize=(10, 6))
+plt.hist(df['total_price'], bins=20, color='blue', alpha=0.7)
+plt.title('Distribusi Total Price')
+plt.xlabel('Total Price')
+plt.ylabel('Frekuensi')
+plt.grid(axis='y', alpha=0.75)
+plt.show()
+```
+![image](https://github.com/user-attachments/assets/0e500999-6425-4862-95fa-5f4afdb2eb1d)
+
+# Total penjualan dan total quantity
+```python
+total_penjualan = df['total_price'].sum()
+total_quantity = df['quantity'].sum()
+
+print(f"Total Penjualan: ${total_penjualan:.2f}")
+print(f"Total Quantity Terjual: {total_quantity}")
+```
+
+# Harga rata-rata per kategori pizza
+```python
+harga_rata_rata = df.groupby('pizza_category')['unit_price'].mean()
+
+print("Harga Rata-rata per Kategori Pizza:")
+print(harga_rata_rata)
+```
+| Kategori Pizza | Harga Rata-rata (Unit Price) |
+|----------------|-------------------------------|
+| Chicken        | 17.71                         |
+| Classic        | 14.80                         |
+| Supreme        | 17.36                         |
+| Veggie         | 16.61                         |
+# Statistik deskriptif lengkap
+```python
+statistik_deskriptif = df.describe()
+
+print("Statistik Deskriptif:")
+print(statistik_deskriptif)
+```
+| Statistik      | pizza_id       | order_id      | quantity     | order_date                | unit_price  | total_price |
+|----------------|----------------|----------------|--------------|---------------------------|-------------|-------------|
+| count          | 48620.000000   | 48620.000000   | 48620.000000 | 19587                     | 48620.000000| 48620.000000|
+| mean           | 24310.500000   | 10701.479761   | 1.019622     | 2015-06-20 08:23:27       | 16.494132   | 16.821474   |
+| min            | 1.000000       | 1.000000       | 1.000000     | 2015-01-01 00:00:00       | 9.750000    | 9.750000    |
+| 25%            | 12155.750000   | 5337.000000    | 1.000000     | 2015-03-12 00:00:00       | 12.750000   | 12.750000   |
+| 50% (Median)   | 24310.500000   | 10682.500000   | 1.000000     | 2015-06-12 00:00:00       | 16.500000   | 16.500000   |
+| 75%            | 36465.250000   | 16100.000000   | 1.000000     | 2015-09-11 00:00:00       | 20.250000   | 20.500000   |
+| max            | 48620.000000   | 21350.000000   | 4.000000     | 2015-12-12 00:00:00       | 35.950000   | 83.000000   |
+| std            | 14035.529381   | 6180.119770    | 0.143077     | NaN                       | 3.621789    | 4.437398    |
+
 
 
 
